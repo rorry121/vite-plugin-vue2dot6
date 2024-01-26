@@ -203,7 +203,9 @@ async function genTemplateRequest(
   const srcQuery = template.src ? '&src' : ''
   const from = template.src ? `&from=${encodeURIComponent(filename)}` : ''
   const attrsQuery = attrsToQuery(template.attrs, 'js', true)
-  const query = `?vue${from}&type=template${srcQuery}${attrsQuery}`
+  const hasScoped = descriptor.styles.some(style => style.scoped)
+  const scopedQuery = hasScoped ? `&scoped=${descriptor.id}` : ''
+  const query = `?vue${from}&type=template${srcQuery}${attrsQuery}${scopedQuery}`
   const templateRequest = src + query
   return {
     code: `import { render as __vue2_render, staticRenderFns as __vue2_staticRenderFns } from ${JSON.stringify(
@@ -289,7 +291,8 @@ async function genStyleRequest(
     const attrsQuery = attrsToQuery(style.attrs, 'css')
     const srcQuery = style.src ? '&src' : ''
     const from = style.src ? `&from=${encodeURIComponent(filename)}` : ''
-    const query = `?vue&type=style&index=${i}${from}${srcQuery}`
+    const scopedQuery = style.scoped ? `&scoped=${descriptor.id}` : ''
+    const query = `?vue&type=style&index=${i}${from}${srcQuery}${scopedQuery}`
     const styleRequest = src + query + attrsQuery
     if (style.scoped)
       scoped = true
@@ -327,7 +330,7 @@ function genCSSModulesCode(
 
 // these are built-in query parameters so should be ignored
 // if the user happen to add them as attrs
-const ignoreList = ['id', 'index', 'src', 'type', 'lang', 'module']
+const ignoreList = ['id', 'index', 'src', 'type', 'lang', 'module', 'scoped']
 
 function attrsToQuery(
   attrs: SFCBlock['attrs'],
