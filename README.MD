@@ -1,4 +1,8 @@
-# vite-plugin-vue2
+Forked from [underfin/vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2)
+
+To continue maintain this library for vue2.6
+
+# vite-plugin-vue2dot6
 
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-vue2?color=a1b858&label=)](https://www.npmjs.com/package/vite-plugin-vue2)
 
@@ -7,12 +11,12 @@
 ## Install
 
 ```bash
-npm install vite-plugin-vue2 -D
+npm install vite-plugin-vue2dot6 -D
 ```
 
 ```js
 // vite.config.js
-import { createVuePlugin } from 'vite-plugin-vue2'
+import { createVuePlugin } from 'vite-plugin-vue2dot6'
 
 export default {
   plugins: [
