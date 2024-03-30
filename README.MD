@@ -1,8 +1,9 @@
-Forked from [underfin/vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2)
-
-To continue maintain this library for vue2.6
-
 # vite-plugin-vue2dot6
+
+Forked from [underfin/vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2)，[underfin/vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2) has been archived by the owner on Feb 17, 2023. It is now read-only.
+
+This library continues to be maintained for vue2.6
+
 
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-vue2?color=a1b858&label=)](https://www.npmjs.com/package/vite-plugin-vue2)
 
